@@ -1,0 +1,113 @@
+﻿@model ScoreModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    
+    body {
+        background-color: #e0f7fa; 
+        color: #333; 
+        font-family: 'Comic Sans MS', sans-serif; 
+        text-align: center; 
+        margin: 0;
+        padding: 0;
+    }
+
+    
+    h1.display-4 {
+        color: #ff5722; 
+        font-weight: bold;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+    }
+
+ 
+    .btn-group .btn {
+        font-size: 1.5rem; 
+        padding: 15px 30px;
+        margin: 10px; 
+        border-radius: 12px; 
+        border: none; 
+        transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    }
+
+    .btn-success {
+        background-color: #4caf50; 
+        color: white;
+    }
+
+    .btn-warning {
+        background-color: #ffc107; 
+        color: black; 
+    }
+
+    .btn-info {
+        background-color: #00bcd4; 
+        color: white; 
+
+  
+    .btn:hover {
+        transform: scale(1.05); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+   
+    .alert {
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 1.2rem; 
+        margin-top: 20px;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724; 
+        border: 2px solid #c3e6cb; 
+    }
+
+    .alert-secondary {
+        background-color: #e2e3e5; 
+        color: #383d41; 
+        border: 2px solid #d6d8db; 
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;
+        color: #721c24; 
+        border: 2px solid #f5c6cb; 
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Taş Kağıt Makas</h1>
+    <p><strong>Oyuncu:</strong> @Model.PlayerScore | <strong>Bilgisaray:</strong> @Model.CpuScore</p>
+    <div class="btn-group" role="group">
+        <a href="/home/oyna/0" class="btn btn-success">🀄 Taş</a>
+        <a href="/home/oyna/1" class="btn btn-warning">📰 Kağıt</a>
+        <a href="/home/oyna/2" class="btn btn-info">✂ Makas</a>
+    </div>
+
+    @if(ViewBag.Kazanan != null)
+    {
+        if (ViewBag.Kazanan == "oyuncu")
+        {
+            <div class="alert alert-success mt-4" role="alert">
+                Oyuncu Kazandı!<br>
+                <strong>Oyuncu: </strong> @ViewBag.Oyuncu - <strong>Bilgisaray: </strong> @ViewBag.Cpu
+            </div>
+        }
+        else if (ViewBag.Kazanan == "berabere")
+        {
+            <div class="alert alert-secondary mt-4" role="alert">
+                Berabere kaldınız..<br>
+                <strong>Oyuncu: </strong> @ViewBag.Oyuncu - <strong>Bilgisaray: </strong> @ViewBag.Cpu
+            </div>
+        } else
+        {
+            <div class="alert alert-danger mt-4" role="alert">
+                Bilgisaray Kazandı 😥<br>
+                <strong>Oyuncu: </strong> @ViewBag.Oyuncu - <strong>Bilgisaray: </strong> @ViewBag.Cpu
+            </div>
+        }
+    }
+</div>
