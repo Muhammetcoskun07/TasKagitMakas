@@ -8,7 +8,6 @@ namespace TasKagitMakas.Controllers
 {
     public class HomeController : Controller
     {
-        string connectionString = "Server=45.84.189.34\\MSSQLSERVER2019;Initial Catalog=muham128_TkmOyun;User Id=muham128_TkmOyundb;Password=522848Aa.;TrustServerCertificate=True";
 
 
         private readonly ILogger<HomeController> _logger;
